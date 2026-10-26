@@ -207,6 +207,11 @@
       "detalle": ""
     },
     {
+      "comprobacion": "Proyecto ejecutable de pruebas incluido",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
       "comprobacion": "Workflow Unity presente",
       "correcto": true,
       "detalle": ""

@@ -1,0 +1,1 @@
+Las animaciones ambientales actuales se configuran en Resources/EnvironmentLayers.json y se ejecutan mediante VisualEffects/EnvironmentLayer.shader, Atmosphere y AmbientPool. La apertura de cofres se anima en WorldMapController; no hay todavía clips de tapa abierta.
