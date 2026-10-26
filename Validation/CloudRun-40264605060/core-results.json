@@ -1,0 +1,173 @@
+{
+  "scope": "Modelo y almacenamiento C# reales; codec System.Text.Json; no Unity ni clics UI",
+  "total": 33,
+  "failed": 0,
+  "unityExecuted": false,
+  "tests": [
+    {
+      "name": "Saldos iniciales cero",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Desbloqueo y resultado del nodo 1",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Desbloqueo y resultado del nodo 2",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Desbloqueo y resultado del nodo 3",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Desbloqueo y resultado del nodo 4",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Desbloqueo y resultado del nodo 5",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Desbloqueo y resultado del nodo 6",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Desbloqueo y resultado del nodo 7",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Desbloqueo y resultado del nodo 8",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Desbloqueo y resultado del nodo 9",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Desbloqueo y resultado del nodo 10",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Rechazo de niveles bloqueados",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Las estrellas no disminuyen",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Resultados inv\u00E1lidos",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "M\u00E1ximo 30 y mundo siguiente",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Cofres con 0 estrellas",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Cofres con 9 estrellas",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Cofres con 10 estrellas",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Cofres con 19 estrellas",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Cofres con 20 estrellas",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Cofres con 29 estrellas",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Cofres con 30 estrellas",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Recompensas acumuladas exactas",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Overflow no concede recompensa parcial",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Guardado y carga de todo el progreso",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Recuperaci\u00F3n de respaldo",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Archivos ausentes",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Ambos archivos da\u00F1ados",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Checksum alterado",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Versi\u00F3n futura rechazada",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Progresi\u00F3n inconsistente rechazada",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "Vol\u00FAmenes y calidad normalizados",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "name": "NaN rechazado",
+      "passed": true,
+      "error": ""
+    }
+  ]
+}

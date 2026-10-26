@@ -1,0 +1,234 @@
+{
+  "alcance": "Validación estática de archivos, no ejecución Unity ni Android",
+  "comprobaciones": [
+    {
+      "comprobacion": "Carpeta Core",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta WorldMap",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta Levels",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta Guardians",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta Enemies",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta UI",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta Audio",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta VisualEffects",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta SaveSystem",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta Art",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta Animations",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta Editor",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Carpeta Tests",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Input System declarado",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Paquetes JSON válidos",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Diez definiciones de nivel",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Seis mundos",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Hitos 10/20/30",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Imagen forest",
+      "correcto": true,
+      "detalle": "(1672, 941), RGB"
+    },
+    {
+      "comprobacion": "Imagen ui",
+      "correcto": true,
+      "detalle": "(1536, 1024), RGBA"
+    },
+    {
+      "comprobacion": "Alfa transparente en UI",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Imagen worlds",
+      "correcto": true,
+      "detalle": "(1536, 1024), RGB"
+    },
+    {
+      "comprobacion": "Escena enlaza controlador real",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Metadatos de activos y carpetas",
+      "correcto": true,
+      "detalle": "[]"
+    },
+    {
+      "comprobacion": "Audio seleccion.wav",
+      "correcto": true,
+      "detalle": "0.18997732426303854 s"
+    },
+    {
+      "comprobacion": "Audio bosque_ambiente.wav",
+      "correcto": true,
+      "detalle": "16.0 s"
+    },
+    {
+      "comprobacion": "Doce subsprites UI declarados",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Seis recortes de miniaturas",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Captura exige Play Mode",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Herramienta APK incluida",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Informe en español",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Dieciséis efectos ilustrados",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Veinte capas ambientales",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Capas enlazadas a efectos conocidos",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Regiones UV dentro de hojas",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Transparencia environment_foliage.png",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Transparencia environment_water.png",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Transparencia environment_particles.png",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Transparencia environment_magic.png",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Capa ambiental conectada al mapa",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Guardado incluye captura de InvalidDataException",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Proyecto ejecutable de pruebas incluido",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Workflow Unity presente",
+      "correcto": true,
+      "detalle": ""
+    },
+    {
+      "comprobacion": "Sintaxis C# sin errores",
+      "correcto": true,
+      "detalle": "24 archivos"
+    }
+  ],
+  "sintaxis_csharp": {
+    "ejecutado": true,
+    "archivos": 24,
+    "errores": [],
+    "nota": "Solo sintaxis; no comprueba tipos ni APIs de Unity."
+  },
+  "unity_ejecutado": false,
+  "android_ejecutado": false,
+  "correcto": true
+}

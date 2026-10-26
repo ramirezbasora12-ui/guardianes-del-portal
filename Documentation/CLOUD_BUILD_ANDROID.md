@@ -20,7 +20,9 @@ El usuario ya completó este paso: https://github.com/ramirezbasora12-ui/guardia
 4. Si la integración usa repositorios seleccionados, abrir https://github.com/settings/installations, localizar la integración GitHub utilizada por Codex/ChatGPT, pulsar **Configure** y añadir el nuevo repositorio. Si se administra como conexión OAuth o desde la app, actualizar la conexión para incluirlo. No modificar permisos de NEXARA.
 5. Codex podrá comprobar el acceso, añadir el remoto y subir los commits. Si GitHub deniega archivos de `.github/workflows`, habrá que autorizar escritura de workflows para esa integración o crear ese archivo mediante el editor web de GitHub; no enviar tokens por el chat.
 
-Este paso requiere tu intervención porque la integración actual no tiene permiso `createRepository`. El commit local y el paquete fuente ya pueden prepararse sin ella.
+El usuario ya completó la creación y se realizaron commits y push. La integración sigue sin poder crear repositorios nuevos, pero sí pudo escribir en el repositorio autorizado.
+
+La ejecución real 40264605060 superó 44 comprobaciones estáticas y 33 pruebas C# en GitHub, y se detuvo por credenciales Unity incompletas antes de abrir el motor. Consulta el informe para los enlaces y posteriores ejecuciones.
 
 ## 2. Licencia de Unity: requisito independiente del repositorio
 
@@ -95,4 +97,4 @@ Estos PNG serían renders reales de Unity en nube, **no capturas de un Android f
 | Gradle/IL2CPP/SDK | Revisar build.log y registros completos de Actions; corregir antes de afirmar APK válida |
 | APK descargada pero no instala | Recoger mensaje Android, versión y dispositivo; la estructura ZIP no demuestra instalación |
 
-Los registros del motor se saneen antes de subirse como artefactos. Nunca se suben archivos de activación. Los logs completos de cada paso también están en **Actions → ejecución → Download log archive**.
+Los registros del motor se sanean antes de subirse como artefactos. Nunca se suben archivos de activación. Los logs completos de cada paso también están en **Actions → ejecución → Download log archive**.

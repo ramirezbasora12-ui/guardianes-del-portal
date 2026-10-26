@@ -1,45 +1,61 @@
-# Informe de pipeline en nube
+# Resultado de compilación en nube — Guardianes del Portal
 
 Fecha: 26 de octubre de 2026.
 
-## Configurado en archivos
+## Estado actual
 
-- Git local independiente, rama `main`; no existían remoto ni workflows previos.
-- `.github/workflows/unity-android.yml`, acciones fijadas por SHA, Unity **2022.3.62f1** y contenedor Android fijado por digest verificado.
-- Validación estática y pruebas .NET del código real de modelo/almacenamiento, separadas del motor.
-- Fixture EditMode para configurar Android, importar recursos, generar escena, comprobar referencias y escribir informe.
-- Pruebas PlayMode de diez botones, 30 estrellas, bloqueos, cofres persistentes, barra lateral y ajustes.
-- Intento de capturas reales con renderizador Unity, con fallo explícito si no hay GPU/renderizador. No usa imágenes generadas como capturas.
-- Método de construcción APK ARM64/IL2CPP con firma de depuración, informe de build y comprobación estructural del APK.
-- Artefactos de logs, tests, escena generada, PNG reales si se producen y APK únicamente si se construye.
-- Comprobación de secretos, saneado de logs, exclusión de archivos de licencia y credenciales. Sin omitir activación.
+Repositorio real: https://github.com/ramirezbasora12-ui/guardianes-del-portal, configurado como **público** por su creador. Proyecto y workflow subidos a `main`. No se modificó NEXARA ni ningún repositorio ajeno.
 
-## Ejecutado realmente en este entorno
+Ejecución comprobada: https://github.com/ramirezbasora12-ui/guardianes-del-portal/actions/runs/40264605060, commit `0ac09553c61c31cea63ef26fa968c3e49748835a`.
 
-- Inspección de proyecto, cuenta/repositorios accesibles y ausencia de repositorio de Guardianes.
-- Consulta a Docker Hub: existen las imágenes de Unity 2022.3.62f1 para Android y Linux IL2CPP. No se descargaron ni ejecutaron como Unity.
-- Consulta de entradas de acciones GameCI y de su documentación oficial de licencias en GitHub.
-- Instalación local de SDK .NET 8.0.427 y compilación de los archivos reales `PlayerData`, `RewardDefinition`, `SaveService`, `SaveCodec` con un ejecutable de pruebas separado.
-- **33/33 pruebas de modelo y almacenamiento correctas**. Se usa System.Text.Json como codec de prueba; Unity JsonUtility sigue pendiente de ejecutar en Unity.
-- Primera ejecución: dos fallos al recuperar datos dañados. Se corrigió la captura de `InvalidDataException`; la segunda ejecución pasó los 33 casos.
-- **43/43 comprobaciones estáticas**, sintaxis sin errores en 24 archivos C# (incluye harness), actionlint sin errores y compilación sintáctica de scripts Python.
-- Cuatro hojas originales nuevas, 16 regiones VFX y 20 capas ambientales preparadas; pintura base preservada.
+| Etapa | Resultado real |
+|---|---|
+| Checkout, Python y .NET en GitHub Actions | Correcto |
+| Validación estática de archivos/recursos/sintaxis | **44/44 comprobaciones correctas en nube** |
+| Compilación y pruebas del modelo/almacenamiento C# con .NET | **33/33 casos correctos en nube** |
+| Preflight de credenciales Unity | **Fallo: faltan secretos requeridos** |
+| Apertura/compilación del proyecto en Unity | No ejecutada |
+| Generación real de escena, EditMode y PlayMode | No ejecutados |
+| Capturas reales de Unity | No producidas |
+| APK Android e instalación en teléfono | No construida / no probada |
 
-## Fallos y bloqueos reales
+El resultado global de esa ejecución es **failure**, por el bloqueo de credenciales. No debe presentarse como una compilación Unity exitosa.
 
-El primer intento de creación automática fue rechazado con **Resource not accessible by integration**. El usuario creó después `ramirezbasora12-ui/guardianes-del-portal` y facilitó su URL. Se verificó vacío, público y con permiso de escritura; no había workflows previos. Se conectó como remoto `origin`. El push y la ejecución se registrarán después de realizarlos. No se usó NEXARA ni otro repositorio como sustituto.
+Los artefactos reales de esa ejecución se recuperaron y conservaron en `Validation/CloudRun-40264605060/`: resultados C#, resultados estáticos, metadatos de trabajos y el texto de bloqueo de licencia. `unity-registros-pruebas-escena` contiene en esta ejecución únicamente el estado de bloqueo; no contiene logs de un motor que no se abrió ni una escena generada.
 
-La integración no permite consultar la configuración de Actions ni listar secretos de este repositorio: ambas operaciones devolvieron HTTP 403. No se conoce por esa vía si los secretos remotos están presentes; el paso de preflight del workflow lo determinará sin revelar valores.
+## Configurado y subido
 
-La página pública `game.ci` devolvió HTTP 403; fue posible consultar la documentación oficial equivalente en el repositorio `game-ci/documentation`.
+- Workflow `.github/workflows/unity-android.yml`, activación por push en `main` y ejecución manual desde Android.
+- Acciones fijadas por SHA, Unity **2022.3.62f1**, imagen Android GameCI fijada por digest verificado en Docker Hub. El registro también confirmó una imagen Linux IL2CPP; no se descargaron ni ejecutaron aquí.
+- Módulos Unity usados por audio, JSON, imágenes, captura y UI declarados explícitamente. SpriteAtlas se configura mediante las APIs del Editor y no mediante una dependencia separada no verificada `com.unity.2d.spriteatlas`.
+- Compilación de scripts al abrir Unity, generación/validación por fixture EditMode y artefacto de escena editable.
+- Tests PlayMode de diez botones, estrellas, bloqueos, cofres persistentes, barra lateral y ajustes.
+- Intento de captura mediante render real Unity a 1920×1080 y 2400×1080; falla si el renderizador es Null. No usa ilustraciones como screenshots.
+- Construcción Android ARM64/IL2CPP de desarrollo con firma de depuración y comprobación estructural de APK. No publicación en Play Store.
+- Artefactos separados de resultados, logs, escena, capturas si se producen y APK solo si existe. Retención de 14 días.
+- Comprobación de credenciales antes de descargar el contenedor, saneado de logs y exclusión de archivos de licencia/keystore. No se omite activación.
 
-No hay Unity instalado ni licencia configurada/activada en este entorno. No se ha ejecutado compilación del proyecto en Unity, EditMode/PlayMode, renderizado, Gradle, instalación Android o medición de rendimiento.
+Tras la ejecución comprobada se ajustaron las dependencias y el contenido del artefacto de validación en el commit `a494d5b`. Esto disparó otra ejecución: https://github.com/ramirezbasora12-ui/guardianes-del-portal/actions/runs/40265035976. **También terminó con el trabajo de código correcto y el trabajo Unity bloqueado en preflight por credenciales incompletas.** Sus metadatos reales están en `Validation/CloudRun-40265035976/jobs.json`. No hubo apertura de Unity en ninguna de las dos ejecuciones comprobadas.
 
-## Requiere tu intervención o autorización
+## Incidencias encontradas y corregidas
 
-1. Repositorio dedicado creado por el usuario y acceso de escritura comprobado. URL: https://github.com/ramirezbasora12-ui/guardianes-del-portal. No requiere reenviar tokens ni volver a crearlo.
-2. Configurar en GitHub una licencia válida y sus credenciales Unity: `UNITY_LICENSE` + `UNITY_EMAIL` + `UNITY_PASSWORD`, o `UNITY_SERIAL` + correo + contraseña para la ruta profesional. No pegarlos en el chat.
-3. Si no dispones de licencia exportable y solo usas Android, elegir y autorizar un medio legítimo de activación: estación Linux remota con Hub o servicio Unity Cloud apropiado. No se ha contratado ni provisionado ningún servicio.
-4. Autorizar Actions si está deshabilitado y confirmar disponibilidad de cuota. Después se podrá disparar y observar una ejecución real.
+1. El proyecto no tenía Git, remoto ni workflows. La creación automática del repositorio fue denegada con `Resource not accessible by integration (createRepository)`. El usuario creó el repositorio dedicado y facilitó acceso; después se realizaron commits y push reales.
+2. Las primeras dos ejecuciones remotas fallaron al validar cinco carpetas vacías que Git no conserva. Se añadieron documentos de organización y sus metadatos; la siguiente ejecución superó la etapa. También se detectó y corrigió una regla heredada de `.gitignore` que excluía el `.csproj` del harness.
+3. Las primeras pruebas locales detectaron dos fallos reales de recuperación de guardados corruptos. Se corrigió la captura de `InvalidDataException`, y los 33 casos pasaron después tanto localmente como en la nube.
+4. La integración devuelve HTTP 403 al consultar configuración de Actions/listar secretos. Esto no impidió subir el workflow, observar los trabajos ni recuperar artefactos mediante la conexión. El propio preflight del runner confirmó que el conjunto de credenciales requerido está incompleto.
+5. La web `game.ci` devolvió HTTP 403; se consultó su documentación oficial equivalente en GitHub. La descarga de artefactos por CLI también devolvió 403; se recuperaron mediante el plugin conectado, sin eludir controles de acceso.
 
-Pasos detallados, íntegramente utilizables desde navegador Android: `Documentation/CLOUD_BUILD_ANDROID.md`.
+## Intervención necesaria desde el teléfono
+
+El acceso al repositorio ya está resuelto. El bloqueo actual es una licencia Unity legítima y las credenciales asociadas, que debes configurar en:
+
+https://github.com/ramirezbasora12-ui/guardianes-del-portal/settings/secrets/actions
+
+- Ruta Personal compatible: **UNITY_LICENSE**, **UNITY_EMAIL**, **UNITY_PASSWORD**.
+- Ruta profesional con serial autorizado: **UNITY_SERIAL**, **UNITY_EMAIL**, **UNITY_PASSWORD**, en lugar de UNITY_LICENSE.
+
+No enviar contraseñas, licencias ni tokens por el chat. Si no tienes un archivo Personal `.ulf` válido, Android no ejecuta Unity Hub: la guía explica una estación Linux remota accesible por navegador o una alternativa de servicio Unity Cloud, con cuentas/costes y autorización propios. No se ha contratado ningún servicio ni generado una licencia ficticia.
+
+Después, abrir Actions → Unity Android — Bosque Primordial → Run workflow. La activación y los pasos Unity todavía pueden revelar errores de compilación, importación, renderizado o Gradle; se corregirán con sus logs reales. Una APK construida deberá instalarse y probarse en el teléfono antes de declararla funcional.
+
+Guía completa: `Documentation/CLOUD_BUILD_ANDROID.md`. **No hay APK funcional ni Mundo 1 terminado.**

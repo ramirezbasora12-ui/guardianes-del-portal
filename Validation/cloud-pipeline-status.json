@@ -6,19 +6,35 @@
     "creation_attempt": "denied",
     "error": "Resource not accessible by integration (createRepository)",
     "visibility": "public",
-    "user_created_after_denial": true
+    "user_created_after_denial": true,
+    "pushed": true
   },
   "unity": {
     "version": "2022.3.62f1",
     "executed": false,
     "licensing_configured": false,
-    "remote_licensing_configured": null
+    "remote_licensing_configured": false,
+    "remote_license_credentials_complete": false
   },
   "github_actions": {
     "configured_file": ".github/workflows/unity-android.yml",
-    "executed": false,
+    "executed": true,
     "actionlint_passed": true,
-    "secret_metadata_access": "denied HTTP 403"
+    "secret_metadata_access": "denied HTTP 403",
+    "verified_run_id": 40264605060,
+    "verified_run_url": "https://github.com/ramirezbasora12-ui/guardianes-del-portal/actions/runs/40264605060",
+    "verified_commit": "0ac09553c61c31cea63ef26fa968c3e49748835a",
+    "conclusion": "failure",
+    "source_job": "success",
+    "source_checks_passed": 44,
+    "core_tests_passed": 33,
+    "unity_job": "failure at credentials preflight",
+    "later_run_id": 40265035976,
+    "later_commit": "a494d5b523909135656effe01b29d9d3ad1a98e5",
+    "later_run_last_observed_status": "completed",
+    "later_run_conclusion": "failure",
+    "later_source_job": "success",
+    "later_unity_job": "failure at credentials preflight"
   },
   "apk_created": false,
   "unity_screenshots_created": false,

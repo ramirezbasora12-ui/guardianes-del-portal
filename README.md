@@ -4,7 +4,7 @@ Proyecto fuente Unity 2D independiente para Android. **Implementación parcial, 
 
 ## Compilar desde un teléfono Android
 
-No necesitas un PC Windows. Está preparado un workflow de GitHub Actions con GameCI, Unity 2022.3.62f1, generación, pruebas y APK. El usuario ya creó y autorizó https://github.com/ramirezbasora12-ui/guardianes-del-portal. La ejecución requiere una licencia Unity válida en secretos de GitHub; consulta el informe para el estado real de ejecución. Todavía no hay APK validada.
+No necesitas un PC Windows. Está preparado un workflow de GitHub Actions con GameCI, Unity 2022.3.62f1, generación, pruebas y APK. El usuario ya creó y autorizó https://github.com/ramirezbasora12-ui/guardianes-del-portal. La ejecución requiere una licencia Unity válida en secretos de GitHub; consulta el informe para el estado real de ejecución. GitHub Actions ya pasó 44 comprobaciones de archivos y 33 pruebas C#; Unity se bloqueó antes de abrirse por credenciales incompletas. Todavía no hay APK.
 
 Sigue [la guía desde Android](Documentation/CLOUD_BUILD_ANDROID.md) y revisa [el estado real del pipeline](CLOUD_PIPELINE_REPORT.md).
 

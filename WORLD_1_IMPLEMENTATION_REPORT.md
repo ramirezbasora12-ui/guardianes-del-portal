@@ -17,8 +17,8 @@ Estos elementos están escritos o producidos como archivos; **no equivalen a una
 
 ## Pruebas ejecutadas
 
-- Compilación .NET 8 del modelo y almacenamiento real más harness independiente: 33/33 casos aprobados. Incluyen diez niveles, bloqueos, máximos, hitos 0/9/10/19/20/29/30, reclamo único, monedas exactas, overflow, guardado/carga y corrupción. No compila Unity ni evalúa su serializer.
-- 43 comprobaciones estáticas aprobadas: recursos, estructura, regiones UV, enlaces de capas, metadatos y declaraciones. Sintaxis C# sin errores en 24 archivos, sin comprobación de tipos Unity.
+- Compilación .NET 8 del modelo y almacenamiento real más harness independiente: 33/33 casos aprobados localmente y en GitHub Actions (ejecución 40264605060). Incluyen diez niveles, bloqueos, máximos, hitos 0/9/10/19/20/29/30, reclamo único, monedas exactas, overflow, guardado/carga y corrupción. No compila Unity ni evalúa su serializer.
+- 44 comprobaciones estáticas aprobadas: recursos, estructura, regiones UV, enlaces de capas, metadatos y declaraciones. Sintaxis C# sin errores en 24 archivos, sin comprobación de tipos Unity.
 - actionlint sin errores en el workflow. Scripts Python compilados sintácticamente.
 - Inspección de imágenes y alfa; verificación de preservación de activos base frente al ZIP anterior.
 - Comprobación de imagen Docker GameCI disponible, no ejecución del contenedor/editor.
@@ -53,6 +53,6 @@ Las nuevas cascadas, cristales y follaje son ilustraciones detalladas independie
 
 ## Estado de nube y Android
 
-No había repositorio Git; se inicializó uno local. GitHub permite consultar repositorios autorizados, pero rechazó crear el repositorio dedicado con `Resource not accessible by integration (createRepository)`. No se tocó NEXARA ni proyectos ajenos. El usuario creó después el repositorio dedicado y se conectó `origin` con acceso de escritura. La integración no permite listar secretos/configuración de Actions (HTTP 403); faltan comprobar la licencia en una ejecución y observar el flujo real. Estado de ejecución en `CLOUD_PIPELINE_REPORT.md`.
+No había repositorio Git; se inicializó uno local. GitHub permite consultar repositorios autorizados, pero rechazó crear el repositorio dedicado con `Resource not accessible by integration (createRepository)`. No se tocó NEXARA ni proyectos ajenos. El usuario creó después el repositorio dedicado, se conectó `origin`, se hicieron commits y push, y GitHub Actions ejecutó el workflow real. La validación de archivos (44) y las pruebas C# (33) pasaron; el trabajo Unity falló en preflight por credenciales incompletas, antes de abrir el motor. Los artefactos reales están conservados en `Validation/CloudRun-40264605060/`. Estado y nuevas ejecuciones en `CLOUD_PIPELINE_REPORT.md`.
 
 **APK no construida; screenshots Unity no producidos; Mundo 1 no completado.** Consultar `CLOUD_PIPELINE_REPORT.md` y `Documentation/CLOUD_BUILD_ANDROID.md` para pasos desde Android y requisitos de autorización.
