@@ -46,6 +46,7 @@ for file in (root/'Assets/Guardianes/Resources/Art').glob('environment*.png'):
   check('Transparencia '+file.name,image.mode=='RGBA' and image.getchannel('A').getextrema()[0]==0)
 check('Capa ambiental conectada al mapa','EnvironmentComposer.Build(map)' in (root/'Assets/Guardianes/UI/MapView.cs').read_text())
 check('Guardado incluye captura de InvalidDataException','e is InvalidDataException' in (root/'Assets/Guardianes/SaveSystem/SaveService.cs').read_text())
+check('Proyecto ejecutable de pruebas incluido',(root/'Tools/CoreTests/CoreTests.csproj').is_file())
 check('Workflow Unity presente',(root/'.github/workflows/unity-android.yml').exists())
 
 syntax={'ejecutado':False,'nota':'Tree-sitter no instalado. No equivale a compilación Unity.'}

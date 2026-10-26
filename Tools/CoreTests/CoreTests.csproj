@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="../../Assets/Guardianes/Core/RewardDefinition.cs" Link="RewardDefinition.cs" />
+    <Compile Include="../../Assets/Guardianes/SaveSystem/PlayerData.cs" Link="PlayerData.cs" />
+    <Compile Include="../../Assets/Guardianes/SaveSystem/SaveService.cs" Link="SaveService.cs" />
+    <Compile Include="../../Assets/Guardianes/SaveSystem/SaveCodec.cs" Link="SaveCodec.cs" />
+  </ItemGroup>
+</Project>

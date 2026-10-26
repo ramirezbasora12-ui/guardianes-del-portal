@@ -22,3 +22,4 @@ Capturas/
 .env.*
 __pycache__/
 *.pyc
+!Tools/CoreTests/CoreTests.csproj
