@@ -1,0 +1,31 @@
+{
+  "scope": "Comparación byte por byte con archivo entregado antes de esta continuación",
+  "assets": [
+    {
+      "asset": "Assets/Guardianes/Resources/Art/forest.png",
+      "unchanged": true,
+      "sha256": "e357897b807699bea406262cf1fb26cd4160b8d3c8906e6985b7d42d2facd0d5"
+    },
+    {
+      "asset": "Assets/Guardianes/Resources/Art/ui.png",
+      "unchanged": true,
+      "sha256": "5baccd236188c70bdda0ff4ea8e083ada14fe6048ca5bc7ff48a016d3891c1a1"
+    },
+    {
+      "asset": "Assets/Guardianes/Resources/Art/worlds.png",
+      "unchanged": true,
+      "sha256": "7c9ef381853e440d3b924b863ae09edb308f175fb32d78fa441ebdd957d3668d"
+    },
+    {
+      "asset": "Assets/Guardianes/Resources/Audio/bosque_ambiente.wav",
+      "unchanged": true,
+      "sha256": "5038ffdfdd16d27a4019364be2db5fa9d7a6c595f690be93c3f9941c21db5feb"
+    },
+    {
+      "asset": "Assets/Guardianes/Resources/Audio/seleccion.wav",
+      "unchanged": true,
+      "sha256": "ea5a9bd3389103ba6e54e14e6855ec3e3580889179c714154b2b8604a039434e"
+    }
+  ],
+  "all_preserved": true
+}

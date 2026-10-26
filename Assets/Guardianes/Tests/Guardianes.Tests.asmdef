@@ -1,0 +1,13 @@
+{
+  "name": "Guardianes.Tests",
+  "references": [
+    "Guardianes.Runtime",
+    "Guardianes.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

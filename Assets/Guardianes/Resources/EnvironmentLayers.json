@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "effects": [
+    {
+      "key": "waterfall",
+      "sheet": "environment_water",
+      "u": 0,
+      "v": 0.4,
+      "w": 0.5,
+      "h": 0.6,
+      "mode": 1,
+      "speed": 1.5,
+      "intensity": 0.006
+    },
+    {
+      "key": "foam",
+      "sheet": "environment_water",
+      "u": 0.5,
+      "v": 0.4,
+      "w": 0.5,
+      "h": 0.6,
+      "mode": 1,
+      "speed": 1.5,
+      "intensity": 0.006
+    },
+    {
+      "key": "ripple",
+      "sheet": "environment_water",
+      "u": 0,
+      "v": 0,
+      "w": 0.5,
+      "h": 0.4,
+      "mode": 2,
+      "speed": 1.5,
+      "intensity": 0.006
+    },
+    {
+      "key": "current",
+      "sheet": "environment_water",
+      "u": 0.5,
+      "v": 0,
+      "w": 0.5,
+      "h": 0.4,
+      "mode": 2,
+      "speed": 1.5,
+      "intensity": 0.006
+    },
+    {
+      "key": "canopy",
+      "sheet": "environment_foliage",
+      "u": 0,
+      "v": 0.5,
+      "w": 0.5,
+      "h": 0.5,
+      "mode": 3,
+      "speed": 0.6,
+      "intensity": 0.006
+    },
+    {
+      "key": "fern",
+      "sheet": "environment_foliage",
+      "u": 0.5,
+      "v": 0.5,
+      "w": 0.5,
+      "h": 0.5,
+      "mode": 3,
+      "speed": 0.6,
+      "intensity": 0.006
+    },
+    {
+      "key": "corrupt",
+      "sheet": "environment_foliage",
+      "u": 0,
+      "v": 0,
+      "w": 0.53,
+      "h": 0.5,
+      "mode": 3,
+      "speed": 0.6,
+      "intensity": 0.006
+    },
+    {
+      "key": "mist",
+      "sheet": "environment_foliage",
+      "u": 0.53,
+      "v": 0,
+      "w": 0.47,
+      "h": 0.5,
+      "mode": 0,
+      "speed": 0.6,
+      "intensity": 0.006
+    },
+    {
+      "key": "crystals",
+      "sheet": "environment_magic",
+      "u": 0,
+      "v": 0.5,
+      "w": 0.5,
+      "h": 0.5,
+      "mode": 4,
+      "speed": 1,
+      "intensity": 0.007
+    },
+    {
+      "key": "portal_start",
+      "sheet": "environment_magic",
+      "u": 0.5,
+      "v": 0.5,
+      "w": 0.5,
+      "h": 0.5,
+      "mode": 5,
+      "speed": 1,
+      "intensity": 0.007
+    },
+    {
+      "key": "portal_boss",
+      "sheet": "environment_magic",
+      "u": 0,
+      "v": 0,
+      "w": 0.5,
+      "h": 0.5,
+      "mode": 5,
+      "speed": 1,
+      "intensity": 0.007
+    },
+    {
+      "key": "portal_next",
+      "sheet": "environment_magic",
+      "u": 0.5,
+      "v": 0,
+      "w": 0.5,
+      "h": 0.5,
+      "mode": 5,
+      "speed": 1,
+      "intensity": 0.007
+    },
+    {
+      "key": "firefly",
+      "sheet": "environment_particles",
+      "u": 0,
+      "v": 0.5,
+      "w": 0.5,
+      "h": 0.5,
+      "mode": 4,
+      "speed": 0.8,
+      "intensity": 0.002
+    },
+    {
+      "key": "sparkle",
+      "sheet": "environment_particles",
+      "u": 0.5,
+      "v": 0.5,
+      "w": 0.5,
+      "h": 0.5,
+      "mode": 4,
+      "speed": 0.8,
+      "intensity": 0.002
+    },
+    {
+      "key": "leaf",
+      "sheet": "environment_particles",
+      "u": 0,
+      "v": 0,
+      "w": 0.5,
+      "h": 0.5,
+      "mode": 4,
+      "speed": 0.8,
+      "intensity": 0.002
+    },
+    {
+      "key": "rune",
+      "sheet": "environment_particles",
+      "u": 0.5,
+      "v": 0,
+      "w": 0.5,
+      "h": 0.5,
+      "mode": 4,
+      "speed": 0.8,
+      "intensity": 0.002
+    }
+  ],
+  "layers": [
+    {
+      "name": "CascadaArbol",
+      "effect": "waterfall",
+      "x": 0.254,
+      "y": 0.6,
+      "width": 0.075,
+      "height": 0.155,
+      "alpha": 0.48,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "EspumaArbol",
+      "effect": "foam",
+      "x": 0.255,
+      "y": 0.523,
+      "width": 0.09,
+      "height": 0.052,
+      "alpha": 0.38,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "CascadaCentral",
+      "effect": "waterfall",
+      "x": 0.405,
+      "y": 0.51,
+      "width": 0.065,
+      "height": 0.13,
+      "alpha": 0.42,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "EspumaCentral",
+      "effect": "foam",
+      "x": 0.405,
+      "y": 0.446,
+      "width": 0.08,
+      "height": 0.045,
+      "alpha": 0.32,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "CascadaInferior",
+      "effect": "waterfall",
+      "x": 0.389,
+      "y": 0.085,
+      "width": 0.075,
+      "height": 0.16,
+      "alpha": 0.42,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "CascadaIsla",
+      "effect": "waterfall",
+      "x": 0.68,
+      "y": 0.27,
+      "width": 0.045,
+      "height": 0.1,
+      "alpha": 0.32,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "CorrienteRio",
+      "effect": "current",
+      "x": 0.53,
+      "y": 0.22,
+      "width": 0.14,
+      "height": 0.075,
+      "alpha": 0.23,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "ReflejosRio",
+      "effect": "ripple",
+      "x": 0.64,
+      "y": 0.13,
+      "width": 0.11,
+      "height": 0.05,
+      "alpha": 0.28,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "Remanso",
+      "effect": "ripple",
+      "x": 0.318,
+      "y": 0.385,
+      "width": 0.06,
+      "height": 0.03,
+      "alpha": 0.24,
+      "rotation": 0,
+      "minQuality": 1
+    },
+    {
+      "name": "RamasAltas",
+      "effect": "canopy",
+      "x": 0.07,
+      "y": 0.91,
+      "width": 0.2,
+      "height": 0.22,
+      "alpha": 0.95,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "HelechoIzquierdo",
+      "effect": "fern",
+      "x": 0.07,
+      "y": 0.09,
+      "width": 0.15,
+      "height": 0.2,
+      "alpha": 0.95,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "HelechoDerecho",
+      "effect": "fern",
+      "x": 0.96,
+      "y": 0.08,
+      "width": 0.14,
+      "height": 0.19,
+      "alpha": 0.9,
+      "rotation": -12,
+      "minQuality": 0
+    },
+    {
+      "name": "EnredaderaCorrupta",
+      "effect": "corrupt",
+      "x": 0.97,
+      "y": 0.72,
+      "width": 0.1,
+      "height": 0.16,
+      "alpha": 0.8,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "NieblaValle",
+      "effect": "mist",
+      "x": 0.49,
+      "y": 0.6,
+      "width": 0.14,
+      "height": 0.08,
+      "alpha": 0.1,
+      "rotation": 0,
+      "minQuality": 1
+    },
+    {
+      "name": "NieblaDistante",
+      "effect": "mist",
+      "x": 0.65,
+      "y": 0.84,
+      "width": 0.14,
+      "height": 0.07,
+      "alpha": 0.1,
+      "rotation": 0,
+      "minQuality": 1
+    },
+    {
+      "name": "CristalesOrilla",
+      "effect": "crystals",
+      "x": 0.417,
+      "y": 0.13,
+      "width": 0.065,
+      "height": 0.11,
+      "alpha": 0.85,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "CristalesRio",
+      "effect": "crystals",
+      "x": 0.656,
+      "y": 0.315,
+      "width": 0.048,
+      "height": 0.085,
+      "alpha": 0.75,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "EnergiaInicio",
+      "effect": "portal_start",
+      "x": 0.074,
+      "y": 0.375,
+      "width": 0.075,
+      "height": 0.175,
+      "alpha": 0.48,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "EnergiaJefe",
+      "effect": "portal_boss",
+      "x": 0.92,
+      "y": 0.902,
+      "width": 0.06,
+      "height": 0.135,
+      "alpha": 0.42,
+      "rotation": 0,
+      "minQuality": 0
+    },
+    {
+      "name": "PortalSiguiente",
+      "effect": "portal_next",
+      "x": 0.786,
+      "y": 0.846,
+      "width": 0.047,
+      "height": 0.105,
+      "alpha": 0.8,
+      "rotation": 0,
+      "minQuality": 0
+    }
+  ]
+}

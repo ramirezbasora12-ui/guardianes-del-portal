@@ -1,0 +1,37 @@
+{
+  "repository": {
+    "local_git": true,
+    "branch": "main",
+    "remote": "https://github.com/ramirezbasora12-ui/guardianes-del-portal.git",
+    "creation_attempt": "denied",
+    "error": "Resource not accessible by integration (createRepository)",
+    "visibility": "public",
+    "user_created_after_denial": true
+  },
+  "unity": {
+    "version": "2022.3.62f1",
+    "executed": false,
+    "licensing_configured": false,
+    "remote_licensing_configured": null
+  },
+  "github_actions": {
+    "configured_file": ".github/workflows/unity-android.yml",
+    "executed": false,
+    "actionlint_passed": true,
+    "secret_metadata_access": "denied HTTP 403"
+  },
+  "apk_created": false,
+  "unity_screenshots_created": false,
+  "editor_android": {
+    "name": "ubuntu-2022.3.62f1-android-3",
+    "digest": "sha256:8add2d432d8e8ef1dfc5b05f3192a81ed1b32e1ce4a254723535e7d33e24b09a",
+    "last_updated": "2026-04-13T13:58:25.415616Z",
+    "full_size": 6840648115
+  },
+  "editor_linux": {
+    "name": "ubuntu-2022.3.62f1-linux-il2cpp-3",
+    "digest": "sha256:c86f1ca3f5a753fb7d8b7e46a6b6e640bdab8178ef9de995d8a01082b9b272a5",
+    "last_updated": "2026-04-13T13:51:44.274597Z",
+    "full_size": 5173442314
+  }
+}

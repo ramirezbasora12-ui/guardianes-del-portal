@@ -1,0 +1,158 @@
+name: Unity Android — Bosque Primordial
+
+on:
+  workflow_dispatch:
+    inputs:
+      capture_screenshots:
+        description: 'Intentar capturas reales de la escena en Unity PlayMode'
+        required: true
+        default: true
+        type: boolean
+  push:
+    branches: [main]
+    paths:
+      - 'Assets/**'
+      - 'Packages/**'
+      - 'ProjectSettings/**'
+      - 'Tools/**'
+      - '.github/workflows/unity-android.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: guardianes-unity-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  UNITY_VERSION: 2022.3.62f1
+  # Docker Hub tag and digest were verified before this workflow was authored.
+  UNITY_ANDROID_IMAGE: unityci/editor:ubuntu-2022.3.62f1-android-3@sha256:8add2d432d8e8ef1dfc5b05f3192a81ed1b32e1ce4a254723535e7d33e24b09a
+
+jobs:
+  source:
+    name: Archivos y pruebas C# sin Unity
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Dependencias de validación estática
+        run: python -m pip install -r Tools/requirements-validation.txt
+      - name: Validar archivos, arte y sintaxis (no es compilación Unity)
+        run: python Tools/validate_source.py
+      - name: Ejecutar código real de progresión y almacenamiento
+        run: dotnet run --project Tools/CoreTests --configuration Release -- Validation/core-results.json
+      - name: Publicar resultados sin Unity
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: validacion-codigo-sin-unity
+          path: Validation/*.json
+          retention-days: 14
+          if-no-files-found: warn
+
+  unity:
+    name: Unity real — pruebas, escena y APK
+    needs: source
+    runs-on: ubuntu-22.04
+    timeout-minutes: 90
+    env:
+      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+      UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+      GUARDIANES_CAPTURE: ${{ github.event_name != 'workflow_dispatch' || inputs.capture_screenshots }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Verificar credenciales requeridas sin revelar valores
+        shell: bash
+        run: |
+          mkdir -p CIArtifacts/Status
+          if [[ -z "$UNITY_EMAIL" || -z "$UNITY_PASSWORD" || ( -z "$UNITY_LICENSE" && -z "$UNITY_SERIAL" ) ]]; then
+            echo 'BLOQUEADO: faltan secretos de licencia Unity. Unity, pruebas del motor y APK NO ejecutados.' | tee CIArtifacts/Status/licencia.txt
+            echo '### Unity no ejecutado: configurar licencia y credenciales en Settings → Secrets and variables → Actions.' >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          echo 'Nombres requeridos presentes; la validez de la licencia solo se conocerá al activarla.' > CIArtifacts/Status/licencia.txt
+      - name: Liberar SDK del anfitrión (Unity usa su propio contenedor Android)
+        run: |
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet
+          df -h .
+      - name: Caché de importación (sin licencias ni credenciales)
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: Library
+          key: guardianes-${{ runner.os }}-2022.3.62f1-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: guardianes-${{ runner.os }}-2022.3.62f1-
+      - name: Compilar scripts, generar escena y ejecutar EditMode
+        uses: game-ci/unity-test-runner@fa6ced25861c16ef56187828c43f76d00df43a23 # v4.3.2
+        with:
+          unityVersion: 2022.3.62f1
+          customImage: ${{ env.UNITY_ANDROID_IMAGE }}
+          testMode: EditMode
+          artifactsPath: artifacts/editmode
+          chownFilesTo: '1001:1001'
+      - name: Probar botones, estrellas, cofres y capturas reales en PlayMode
+        uses: game-ci/unity-test-runner@fa6ced25861c16ef56187828c43f76d00df43a23 # v4.3.2
+        with:
+          unityVersion: 2022.3.62f1
+          customImage: ${{ env.UNITY_ANDROID_IMAGE }}
+          testMode: PlayMode
+          artifactsPath: artifacts/playmode
+          customParameters: -screen-width 1920 -screen-height 1080
+          chownFilesTo: '1001:1001'
+      - name: Construir APK ARM64 de desarrollo con firma de depuración
+        uses: game-ci/unity-builder@d58755728721f9161882dc79ea5818bb2f3ad64e # v4.7.0
+        with:
+          unityVersion: 2022.3.62f1
+          customImage: ${{ env.UNITY_ANDROID_IMAGE }}
+          targetPlatform: Android
+          buildMethod: Guardianes.Editor.CloudBuild.BuildAndroid
+          buildName: GuardianesDelPortal
+          buildsPath: build
+          androidExportType: androidPackage
+          versioning: Custom
+          version: 0.1.0
+          allowDirtyBuild: true
+          customParameters: -batchmode
+          chownFilesTo: '1001:1001'
+      - name: Verificar que la salida es una APK Unity (no equivale a instalarla)
+        run: python3 Tools/verify_apk.py build/Android/GuardianesDelPortal.apk CIArtifacts/Build/apk-verification.json
+      - name: Sanear registros antes de publicarlos como artefactos
+        if: always()
+        run: python3 Tools/sanitize_ci_logs.py
+      - name: Publicar registros, pruebas y escena generada
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: unity-registros-pruebas-escena
+          path: |
+            CIArtifacts/
+            artifacts/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Publicar APK únicamente si existe
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: guardianes-android-apk
+          path: build/Android/GuardianesDelPortal.apk
+          retention-days: 14
+          if-no-files-found: error
+      - name: Resumen de ejecución
+        if: always()
+        env:
+          RESULT: ${{ job.status }}
+        run: |
+          echo "### Trabajo Unity: $RESULT" >> "$GITHUB_STEP_SUMMARY"
+          echo 'Un fallo de licencia bloquea el motor. Una APK construida aún requiere instalarse y probarse en Android.' >> "$GITHUB_STEP_SUMMARY"

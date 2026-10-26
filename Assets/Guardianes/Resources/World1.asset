@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27536f3ec68b5732b4d6d9d0ef6461e2, type: 3}
+  m_Name: World1
+  m_EditorClassIdentifier: 
+  worlds:
+  - Bosque Primordial
+  - Volcán Carmesí
+  - Hielo Eterno
+  - Desierto Ancestral
+  - Tierras Sombrías
+  - Dimensión Celestial
+  levels:
+  - name: Entrada al Bosque Primordial
+    difficulty: 1
+    position: {x: 0.2, y: 0.245}
+  - name: Sendero Antiguo
+    difficulty: 1
+    position: {x: 0.345, y: 0.3}
+  - name: Cascadas de Cristal
+    difficulty: 2
+    position: {x: 0.465, y: 0.37}
+  - name: Puente Roto
+    difficulty: 2
+    position: {x: 0.58, y: 0.47}
+  - name: Ruinas Olvidadas
+    difficulty: 2
+    position: {x: 0.73, y: 0.36}
+  - name: Bosque Susurrante
+    difficulty: 3
+    position: {x: 0.835, y: 0.55}
+  - name: Puesto del Guardián
+    difficulty: 3
+    position: {x: 0.66, y: 0.565}
+  - name: Río Sagrado
+    difficulty: 3
+    position: {x: 0.775, y: 0.645}
+  - name: Bosque Corrupto
+    difficulty: 4
+    position: {x: 0.855, y: 0.73}
+  - name: El Guardián Antiguo — Jefe
+    difficulty: 5
+    position: {x: 0.91, y: 0.84}
+  rewards:
+  - stars: 10
+    gold: 100
+    blue: 5
+    purple: 0
+  - stars: 20
+    gold: 250
+    blue: 15
+    purple: 0
+  - stars: 30
+    gold: 500
+    blue: 30
+    purple: 3
+  gameplayScenes:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 

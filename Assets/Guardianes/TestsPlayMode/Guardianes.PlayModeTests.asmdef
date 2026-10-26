@@ -1,0 +1,5 @@
+{
+  "name": "Guardianes.PlayModeTests",
+  "references": ["Guardianes.Runtime", "Unity.ugui"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}
